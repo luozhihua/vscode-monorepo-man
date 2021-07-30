@@ -1,0 +1,77 @@
+{
+  "name": "monorepo-manager",
+	"displayName": "Monorepo Manager",
+	"description": "Monorepo project manager",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+  "publisher": "ColinLuo",
+  "repository": "https://github.com/luozhihua/vscode-monorepo-man.git",
+	"icon": "images/logo.png",
+	"categories": [
+		"Other"
+	],
+  "keywords": [
+    "workspace",
+    "monorepo",
+    "project",
+    "npm",
+    "folder",
+		"lerna"
+  ],
+	"activationEvents": [
+        "onCommand:monorepo-manager.helloWorld"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "monorepo-manager.helloWorld",
+				"title": "Monorepo Manager: hello world"
+			},
+			{
+				"command": "monorepo-manager.openInNewWindow",
+				"title": "Monorepo Manager: open in new window"
+			},
+      {
+        "command": "monorepo-manager.openPackageCurrentWindow",
+        "title": "Monorepo Manager: Open Package (Current Window)"
+      },
+      {
+        "command": "monorepo-manager.openPackageNewWindow",
+        "title": "Monorepo Manager: Open Package (New Window)"
+      },
+      {
+        "command": "monorepo-manager.openPackageWorkspaceFolder",
+        "title": "Monorepo Manager: Open Package (Workspace Folder)"
+      }
+    ]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+    "rollup-plugin-progress": "1.1.2",
+    "ultra-runner": "3.10.5"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.58.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	},
+	"contributors": ["Colin Luo"]
+}
